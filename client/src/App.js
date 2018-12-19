@@ -19,7 +19,7 @@ class App extends Component {
           
           <PVLED pvId='simple:A'/>
           { this.pvIds.map(pvId => (
-            <div>
+            <div key={pvId}>
               <p>{pvId}</p>
               <PVRawValue pvId={pvId} />
             </div>
