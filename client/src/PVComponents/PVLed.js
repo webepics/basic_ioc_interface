@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 const styles = {
     width: '1em',
     height: '1em',
-    'border-radius': '50%',
+    borderRadius: '50%',
     border: '1px solid white',
 }
 
