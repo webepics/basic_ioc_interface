@@ -3,6 +3,6 @@ export const PV_UPDATE = 'update'
 
 
 export const PVMessage = pv => ({
-    type: PV_INFO,
+    type: pv.type,
     pv
 })
