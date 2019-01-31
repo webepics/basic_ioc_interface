@@ -1,0 +1,30 @@
+[
+  {
+    "description": "Number of uS from Janurary 1 1970",
+    "pvname": "$(p)$(card)BatFrame:bat",
+    "name": "BatFrame:bat",
+    "units": "uS",
+    "size": "1"
+  },
+  {
+    "description": "Universal coordinated time",
+    "pvname": "$(p)$(card)BatFrame:utc",
+    "name": "BatFrame:utc",
+    "units": "mS",
+    "size": "1"
+  },
+  {
+    "description": "Local mean sidreal time",
+    "pvname": "$(p)$(card)BatFrame:lmst",
+    "name": "BatFrame:lmst",
+    "units": "mS",
+    "size": "1"
+  },
+  {
+    "description": "Modified Julian Day Number",
+    "pvname": "$(p)$(card)BatFrame:mjd",
+    "name": "BatFrame:mjd",
+    "units": "",
+    "size": "1"
+  }
+]
