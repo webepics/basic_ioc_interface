@@ -1,0 +1,17 @@
+version: '3'
+services:
+  ioc_to_websocket:
+    build: ./ioc_to_websocket/
+    network_mode: bridge
+    ports:
+      - 8080:8080
+    environment:
+      EPICS_CA_ADDR_LIST: "172.17.255.255"
+  web_put:
+    build: ./web_put
+    network_mode: bridge
+    ports:
+      - 8081:8081
+  test_iocs:
+    build: ./xml_to_caproto
+    network_mode: bridge

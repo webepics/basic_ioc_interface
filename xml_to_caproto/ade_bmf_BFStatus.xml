@@ -1,0 +1,58 @@
+<macros>
+  <Group name="BFStatus:powerStatus" type="iocPoint">
+    <comment>power status</comment>
+    <name>BFStatus:powerStatus</name>
+    <pv>$(p)$(card)BFStatus:powerStatus</pv>
+    <type>int</type>
+    <size>1</size>
+  </Group>
+  <Group name="BFStatus:fpgaConfigured" type="iocPoint">
+    <comment>FPGA configured</comment>
+    <name>BFStatus:fpgaConfigured</name>
+    <pv>$(p)$(card)BFStatus:fpgaConfigured</pv>
+    <type>int</type>
+    <size>1</size>
+  </Group>
+  <Group name="BFStatus:band" type="iocEnumValue">
+    <comment>Band:Band</comment>
+    <name>BFStatus:band</name>
+    <pv>$(p)$(card)BFStatus:band</pv>
+    <type>int</type>
+    <size>1</size>
+  </Group>
+  <Group name="BFStatus:centerFreq" type="iocPoint">
+    <comment>center frequency</comment>
+    <name>BFStatus:centerFreq</name>
+    <pv>$(p)$(card)BFStatus:centerFreq</pv>
+    <type>int</type>
+    <size>1</size>
+  </Group>
+  <Group name="BFStatus:zoom" type="iocEnumValue">
+    <comment>Zoom mode:Zoom mode</comment>
+    <name>BFStatus:zoom</name>
+    <pv>$(p)$(card)BFStatus:zoom</pv>
+    <type>int</type>
+    <size>1</size>
+  </Group>
+  <Group name="BFStatus:channelNumbers" type="iocArray">
+    <comment>Channel Numbers</comment>
+    <name>BFStatus:channelNumbers</name>
+    <pv>$(p)$(card)BFStatus:channelNumbers</pv>
+    <type>label</type>
+    <size>1</size>
+  </Group>
+  <Group name="BFStatus:portMap" type="iocPoint">
+    <comment>Port Map</comment>
+    <name>BFStatus:portMap</name>
+    <pv>$(p)$(card)BFStatus:portMap</pv>
+    <type>uint32</type>
+    <size>192</size>
+  </Group>
+  <Group name="BFStatus:streamStatus" type="iocPoint">
+    <comment>Streaming output status</comment>
+    <name>BFStatus:streamStatus</name>
+    <pv>$(p)$(card)BFStatus:streamStatus</pv>
+    <type>int</type>
+    <size>1</size>
+  </Group>
+</macros>

@@ -7,19 +7,18 @@ This repository will be made up of three parts:
 - ioc_to_websocket: maps IOCs to websockets to be read by client, and provides testing/debugging interface at :8080/epics2web
 - test_iocs: testing IOCs made with python's caproto library
 
-
+Before beginning, make sure you've installed and started Docker. For more information see the [docker docs](https://docs.docker.com/install/).
 
 ## ioc_to_websocket
 
-To run the _ioc_to_websocket_ tomcat server, simply build and run a docker container.
+To run the _ioc_to_websocket_ tomcat server, navigate to the _ioc_to_websocket_ folder, and build and run a docker container.
+
+See steps below.
 
 ### Building
 
 ```bash 
-docker build \
-	-t ioc_to_websocket \
-	--build-arg epic_ca_addr_list=<IOC IPs> \
-	.
+docker build -t ioc_to_websocket --build-arg epic_ca_addr_list="<IOC IPs>" .
 ```
 
 Note that `<IOC IPs>` must be replaced with actual IPs. Information about the formatting of this can be found [here](https://epics.anl.gov/base/R3-14/10-docs/CAref.html#EPICS).
@@ -42,9 +41,9 @@ The _host_ioc_a_ and _host_ioc_b_ are practically identical, apart from containi
 
 _host_ioc_a_ contains the PVs `sample:a` and `sample:b`, whilst _host_ioc_b_ contains the PVs `sample:c` and `sample:d`.
 
-To run these, build them with `docker build .`, and run with `docker run <container>` where `<containe>` is the name or id of the container you just build.
+To run these, navigate to their folders and build them with `docker build .`, and run with `docker run <container>` where `<containe>` is the name or id of the container you just build.
 
-To specify a container name when building, use the `-t` flag. 
+To specify a container name when building, use the `-t` flag, otherwise you can use the auto-generated id. 
 
 ## Testing
 
