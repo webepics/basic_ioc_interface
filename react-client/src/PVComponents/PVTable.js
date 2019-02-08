@@ -1,7 +1,7 @@
 
 import React from 'react'
 import PVComponent, { ConnectComponent } from '../PVComponent'
-import PVLed from './PVLed'
+import PVCheckbox from './PVCheckbox'
 
 class PVTable extends PVComponent {
 
@@ -25,7 +25,7 @@ class PVTable extends PVComponent {
             return (
                 <tr key={item} style={{height: '12px'}}>
                     <td>{ i + 1 }</td>
-                    {item.map((element, j) => <td key={element}> <PVLed pv={element} /><button onClick={this.write(element, 1)}>0</button> <button onClick={this.write(element, 0)}>X</button></td>)}
+                    {item.map((element, j) => <td key={element}> <PVCheckbox pv={element} /></td>)}
                 </tr>
             );
         });
