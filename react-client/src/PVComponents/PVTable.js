@@ -2,6 +2,11 @@
 import React from 'react'
 import PVComponent, { ConnectComponent } from '../PVComponent'
 import PVCheckbox from './PVCheckbox'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
 
 class PVTable extends PVComponent {
 
@@ -23,17 +28,21 @@ class PVTable extends PVComponent {
     render() {
         const rows = this.ids.map((item, i) => {
             return (
-                <tr key={item} style={{height: '12px'}}>
-                    <td>{ i + 1 }</td>
-                    {item.map((element, j) => <td key={element}> <PVCheckbox pv={element} /></td>)}
-                </tr>
+                <TableRow key={item} style={{height: '12px'}}>
+                    <TableCell style={{padding:0}}>
+                        <Typography variant="h5" color="inherit">
+                            { i + 1 }
+                        </Typography>
+                    </TableCell>
+                    {item.map((element, j) => <TableCell style={{padding:0}} key={element}> <PVCheckbox pv={element} /></TableCell>)}
+                </TableRow>
             );
         });
-        return <table>
-            <tbody>
+        return <Table>
+            <TableBody>
                 {rows}
-            </tbody>
-        </table>
+            </TableBody>
+        </Table>
     }
 }
 
