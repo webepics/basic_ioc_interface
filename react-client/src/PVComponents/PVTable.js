@@ -1,12 +1,13 @@
 
 import React from 'react'
-import PVComponent, { ConnectComponent } from '../PVComponent'
-import PVCheckbox from './PVCheckbox'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
+
+import PVComponent, { ConnectComponent } from '../PVComponent'
+import PVCheckbox from './PVCheckbox'
 
 class PVTable extends PVComponent {
 

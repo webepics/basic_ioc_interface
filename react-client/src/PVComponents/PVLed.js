@@ -4,11 +4,10 @@ import PVComponent, { ConnectComponent } from '../PVComponent'
 
 class PVLed extends PVComponent {
     styles = {
-        border: '1px solid black',
-        margin: '0',
-        display: 'inline-block',
-        width: '10px',
-        height: '10px',
+        width: '1em',
+        height: '1em',
+        borderRadius: '50%',
+        border: '1px solid white',
     }
 
     render() {

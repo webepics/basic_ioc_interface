@@ -1,7 +1,8 @@
 
 import React from 'react'
-import PVComponent, { ConnectComponent } from '../PVComponent'
 import Checkbox from '@material-ui/core/Checkbox';
+
+import PVComponent, { ConnectComponent } from '../PVComponent'
 
 class PVCheckbox extends PVComponent {
 
