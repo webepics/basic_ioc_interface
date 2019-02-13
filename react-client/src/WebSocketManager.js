@@ -22,7 +22,9 @@ class WebSocketManager extends Component {
     }
 
     connectWebSocket() {
-        if (this.socket != null) this.socket.close()
+        if (this.socket != null) {
+            this.socket.close()
+        }
         console.log(`Attempting connection to: ${this.props.url}`)
         this.socket = new WebSocket(this.props.url)
         this.socket.onopen = () => {
@@ -49,12 +51,9 @@ class WebSocketManager extends Component {
         this.props.WebSocketMessage({type: 'url', state: event.target.value})
     }
 
-
     onData(data) {
-        console.log(data)
         this.queue.push(data)
     }
-
 
     sendMonitorMessage(monitored) {
         const message = {
