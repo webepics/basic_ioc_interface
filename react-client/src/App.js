@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css';
 
+import Header from './components/Header.js'
 import WebSocketManager from './WebSocketManager.js'
-import PVTable from './PVComponents/PVTable'
+import routes from './routes/index.js'
 
 const theme = createMuiTheme({
   typography: {
@@ -15,15 +17,22 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-      <div className="App">
-        <header className="App-header">
-          <WebSocketManager />
-          <PVTable template='$(p)$(card)BFStatus:fpgaConfigured' prefix='ak' pCount={36} cardCount={12} />
-        </header>
-      </div>
+        <BrowserRouter>
+        <div className="App">
+            <Header/>
+            <WebSocketManager />
+            <div className="App-body">
+                 {routes.map((prop, key) => {
+                     return <Route path={prop.path} exact={prop.exact} key={key} component={prop.component} />;
+                 })}
+            </div>
+        </div>
+        </BrowserRouter>
       </MuiThemeProvider>
     );
   }
 }
 
 export default App;
+
+
