@@ -78,7 +78,7 @@ class WebSocketManager extends Component {
                 />
                 <Button variant="outlined" color="primary" onClick={this.connectWebSocket}>Connect</Button>
                 <Typography variant="h5" color="inherit">
-                Status: <ReadyState readyState={this.props.readyState} /><br />
+                Status: <ReadyState readyState={this.props.readyState} isMinimal={false}/><br />
                 </Typography>
             </FormControl>
         )

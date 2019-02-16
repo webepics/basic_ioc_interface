@@ -4,14 +4,19 @@ import * as Actions from './actions'
 
 const defaultState = {
     websocket: {
-        url: 'ws://localhost:8080/epics2web/monitor',
+        url: 'ws://192.168.99.100:8080/epics2web/monitor',
         monitored: {},
         readyState: 3,
     },
     http: {
-        put_url: 'http://localhost:8081/put',
+        put_url: 'http://192.168.99.100:8081/put',
     },
     pvs: {},
+    display: {
+        drawer: {
+            open: false
+        }
+    }
 }
 
 const pvs = (state = defaultState.pvs, action) => {
@@ -71,10 +76,23 @@ const http = (state = defaultState.http, action) => {
     return state
 }
 
+const display = (state = defaultState.display, action) => {
+    switch (action.type) {
+        case Actions.DRAWER_TOGGLE: 
+            return {
+                ...state,
+                drawer: {open: !state.drawer.open}
+            }
+        default: return state
+    }
+}
+
+
 const rootReducer = combineReducers({
     pvs,
     websocket,
-    http
+    http,
+    display
 })
 
 export default createStore(
