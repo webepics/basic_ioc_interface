@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { blue, blueGrey, teal, green, orange, red } from '@material-ui/core/colors';
 import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css';
 
@@ -8,6 +9,27 @@ import WebSocketManager from './WebSocketManager.js'
 import routes from './routes/index.js'
 
 const theme = createMuiTheme({
+  palette: {
+    primary: {
+      ...blue, 
+      main:blue[500]
+    },
+    secondary: {
+      ...teal, 
+      main:teal[500]},
+    info: {
+      ...blueGrey, 
+      main:blueGrey[500]},
+    success: {
+      ...green, 
+      main:green[500]},
+    warning: {
+      ...orange, 
+      main:orange[500]},
+    error: {
+      ...red, 
+      main:red[500]},
+  },
   typography: {
     useNextVariants: true,
   },

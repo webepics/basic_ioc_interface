@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 import { PVMessage, PVMessages, WebSocketMessage } from "./redux/actions";
+import ReadyState from './components/ReadyState.js'
 
 const debounceTime = 250
 
@@ -82,14 +83,6 @@ class WebSocketManager extends Component {
             </FormControl>
         )
     }
-}
-
-function ReadyState(props) {
-    if (props.readyState === 0) return <span style={{color:"orange"}}>Connecting</span>
-    if (props.readyState === 1) return <span style={{color:"green"}}>Connected</span>
-    if (props.readyState === 2) return <span style={{color:"orange"}}>Disconnecting</span>
-    if (props.readyState === 3) return <span style={{color:"red"}}>Disconnected</span>
-    return 'Error'
 }
 
 export default connect(state => state.websocket, { PVMessage, PVMessages, WebSocketMessage })(WebSocketManager)
