@@ -18,7 +18,7 @@ To change the `EPICS_CA_ADDR_LIST` variable, modify _docker-compose.yml_.
 
 ## Run React
 
-To run react, simply navigate to the _react_client/_ folder and type `npm start`. This will start a hot-reloading development server and open `localhost:3000`. 
+To run react, simply navigate to the _react_client/_ folder and type `npm start` (`npm install` before that when starting from scratch). This will start a hot-reloading development server and open `localhost:3000`. 
 
 ## ioc_to_websocket independently (optional)
 
@@ -57,4 +57,3 @@ Note that the `-p 8080:8080` will bind the debug interface to `localhost:8080/ep
 - Parse JSON into React table widgets
 - Figure out how to get control data through epics2web and handle that in client
 - Add support for array PVs (e.g. waveforms)
-- 
