@@ -6,6 +6,8 @@ export const WS_READY = 'readyState'
 export const WS_MONITOR = 'addPV'
 export const WS_UNMONITOR = 'removePV'
 
+export const DRAWER_TOGGLE = 'drawerToggle'
+
 export const PVMessage = pv => ({
     type: pv.type,
     pv

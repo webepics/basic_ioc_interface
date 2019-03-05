@@ -1,5 +1,7 @@
 
 import React from 'react'
+import Checkbox from '@material-ui/core/Checkbox';
+
 import PVComponent, { ConnectComponent } from '../PVComponent'
 
 class PVCheckbox extends PVComponent {
@@ -21,7 +23,10 @@ class PVCheckbox extends PVComponent {
     }
 
     render() {
-        return <input type="checkbox" checked={this.checked()} onChange={this.handleChange}/>
+        const {pvs, pv} = this.props;
+        const pvValue = pvs[pv] && pvs[pv].value ? pvs[pv].value : "";
+        const title = `pv: ${pv} \nvalue: ${pvValue}`;
+        return <Checkbox color="primary" title={title} style={{padding:"4px"}} value={pv} checked={this.checked()} onChange={this.handleChange}/>
     }
 }
 

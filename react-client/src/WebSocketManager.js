@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
-
 import { connect } from "react-redux";
+import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+
 import { PVMessage, PVMessages, WebSocketMessage } from "./redux/actions";
+import ReadyState from './components/ReadyState.js'
 
 const debounceTime = 250
 
@@ -18,12 +23,14 @@ class WebSocketManager extends Component {
     }
 
     connectWebSocket() {
-        if (this.socket != null) this.socket.close()
+        if (this.socket != null) {
+            this.socket.close()
+        }
         console.log(`Attempting connection to: ${this.props.url}`)
         this.socket = new WebSocket(this.props.url)
         this.socket.onopen = () => {
             this.props.WebSocketMessage({type: 'readyState', state: this.socket.readyState})
-            this.sendMonitorMessage(Object.keys(this.props.monitored))            
+            this.sendMonitorMessage(Object.keys(this.props.monitored))
             this.forceUpdate()
         }
         this.socket.close = () => {
@@ -45,11 +52,9 @@ class WebSocketManager extends Component {
         this.props.WebSocketMessage({type: 'url', state: event.target.value})
     }
 
-
     onData(data) {
         this.queue.push(data)
     }
-
 
     sendMonitorMessage(monitored) {
         const message = {
@@ -61,22 +66,23 @@ class WebSocketManager extends Component {
 
     render() {
         return (
-            <form onSubmit={e => e.preventDefault()}>
-                <label htmlFor="host" >Host</label><br />
-                <input type="text" name="host" onChange={this.onUrlChange} value={this.props.url} style={{ width: '50em' }} /><br />
-                <button onClick={this.connectWebSocket}>Connect</button><br />
-                <ReadyState readyState={this.props.readyState} /><br />
-            </form>
+            <FormControl onSubmit={e => e.preventDefault()} style={{color:'black',backgroundColor:'white', width: 500, padding: "0 50px", border: "1px solid black"}}>
+                Host
+                <TextField
+                id="host"
+                label="Host URL"
+                value={this.props.url}
+                onChange={this.onUrlChange}
+                margin="normal"
+                variant="outlined"
+                />
+                <Button variant="outlined" color="primary" onClick={this.connectWebSocket}>Connect</Button>
+                <Typography variant="h5" color="inherit">
+                Status: <ReadyState readyState={this.props.readyState} isMinimal={false}/><br />
+                </Typography>
+            </FormControl>
         )
     }
-}
-
-function ReadyState(props) {
-    if (props.readyState === 0) return 'Connecting'
-    if (props.readyState === 1) return 'Connected'
-    if (props.readyState === 2) return 'Disconnecting'
-    if (props.readyState === 3) return 'Disconnected'
-    return 'Error'
 }
 
 export default connect(state => state.websocket, { PVMessage, PVMessages, WebSocketMessage })(WebSocketManager)
