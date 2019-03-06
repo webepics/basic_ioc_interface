@@ -46,6 +46,21 @@ If you wish to run a detached container, simply add the `-d` flag.
 
 Note that the `-p 8080:8080` will bind the debug interface to `localhost:8080/epics2web`. If you do not wish to publish this interface, omit this argument.
 
+## Adding PVComponents
+
+I've tried to make adding PVComponents super simple.
+
+- Import the PVComponent parent class:
+  `import PVComponent, { ConnectComponent } from '../PVComponent'`
+- Extend it:
+  `class PVMyComponent extends PVComponent`
+- Register with Redux (at bottom of page in export):
+  `export default ConnectComponent(PVMyComponent)`
+- Use in render:
+  `this.props.pvs[pvId].value`
+
+For a super simple example, see `/react-client/src/PVComponents/PVLed.js`.
+
 ## Todo
 
 - Integrate epics2web max-bytes argument into Docker Build step rather than use custom _epics2web.war_
@@ -53,7 +68,6 @@ Note that the `-p 8080:8080` will bind the debug interface to `localhost:8080/ep
 - Give the option to use a custom network
 
 - Add basic Authentication/Authorization in UI
-- Add basic React Routing
 - Parse JSON into React table widgets
 - Figure out how to get control data through epics2web and handle that in client
 - Add support for array PVs (e.g. waveforms)
