@@ -41,7 +41,7 @@ class PVBarGraph extends PVComponent {
     }, this);  
   	return (
         <div>
-          <BarChart onClick={() => this.render()} width={800} height={140} data={this.state.data}>
+          <BarChart onClick={() => this.render()} width={this.props.width} height={this.props.height} data={this.state.data}>
             <XAxis dataKey='label' height={50} interval={0} dx={8} dy={20} angle={75}/>
             <Bar dataKey='value' fill='#8c8700' background={{ fill: '#eee' }}/>
             <Tooltip/>
