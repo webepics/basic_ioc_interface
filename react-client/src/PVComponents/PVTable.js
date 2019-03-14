@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import PVComponent, { ConnectComponent } from '../PVComponent'
 import PVCheckbox from './PVCheckbox';
 import PVLed from './PVLed';
+import PVGraphBar from './PVGraphBar'
 
 class PVTable extends PVComponent {
     ids = []
@@ -65,6 +66,7 @@ class PVTable extends PVComponent {
                 {rows}
             </TableBody>
         </Table>
+        <PVGraphBar ids={this.ids} />
         </React.Fragment>
         )
     }
