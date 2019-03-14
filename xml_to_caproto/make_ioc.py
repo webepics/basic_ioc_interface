@@ -1,15 +1,17 @@
-import sys
 import xml.etree.ElementTree as ElementTree
 import re
+import argparse
 
-if len(sys.argv) < 3:
-    print('Two arguments expected')
-    sys.exit(1)
+parser = argparse.ArgumentParser('Generate a test IOC')
+
+parser.add_argument('-o', dest='output_file', help='output file')
+parser.add_argument('input_files', metavar='file', nargs='+', help='XML input file')
+args = parser.parse_args()
 
 pvset = ''
-with open(sys.argv[1], 'w') as file:
+with open(args.output_file, 'w') as file:
     i = 0
-    for f in sys.argv[2:]:
+    for f in args.input_files:
         with open(f) as xml:
             tree = ElementTree.parse(xml)
 
