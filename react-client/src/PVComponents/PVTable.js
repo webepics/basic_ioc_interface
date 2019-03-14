@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import PVComponent, { ConnectComponent } from '../PVComponent'
 import PVCheckbox from './PVCheckbox';
 import PVLed from './PVLed';
+import PVInput from './PVInput';
 
 class PVTable extends PVComponent {
     ids = []
@@ -32,7 +33,7 @@ class PVTable extends PVComponent {
 
     toggleDisplay() {
         this.setState({
-            displayType: this.state.displayType === 'checkbox' ? 'led' : 'checkbox',
+            displayType: this.state.displayType === 'checkbox' ? 'led' : this.state.displayType === 'led' ? 'text' : 'checkbox',
         })
     }
 
@@ -49,7 +50,10 @@ class PVTable extends PVComponent {
                         <TableCell style={{padding:0}} key={element}>
                             {this.state.displayType === 'checkbox' ?
                             <PVCheckbox pv={element} /> :
-                            <PVLed pv={element} />
+                            this.state.displayType === 'led' ?
+                            <PVLed pv={element} /> :
+                            <PVInput pv={element} />
+
                             }
                         </TableCell>)}
                 </TableRow>
@@ -58,7 +62,7 @@ class PVTable extends PVComponent {
         return (
         <React.Fragment>
         <br/><br/>
-        <Button variant="outlined" color="primary" onClick={this.toggleDisplay}>Toggle Checkbox / LED</Button>
+        <Button variant="outlined" color="primary" onClick={this.toggleDisplay}>Toggle Checkbox / LED / TextFields</Button>
         <br/>
         <Table>
             <TableBody>
