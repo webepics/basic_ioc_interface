@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 
 import PVComponent, { ConnectComponent } from '../PVComponent'
 import PVCheckbox from './PVCheckbox';
+import PVButton from './PVButton';
 import PVLed from './PVLed';
 
 class PVTable extends PVComponent {
@@ -47,7 +48,8 @@ class PVTable extends PVComponent {
                     </TableCell>
                     {item.map((element, j) =>
                         <TableCell style={{padding:0}} key={element}>
-                            {this.state.displayType === 'checkbox' ?
+                            {
+                            this.state.displayType === 'checkbox' ?
                             <PVCheckbox pv={element} /> :
                             <PVLed pv={element} />
                             }
@@ -59,6 +61,7 @@ class PVTable extends PVComponent {
         <React.Fragment>
         <br/><br/>
         <Button variant="outlined" color="primary" onClick={this.toggleDisplay}>Toggle Checkbox / LED</Button>
+        <PVButton pv={this.ids[0][0]}> name=name </PVButton>:  {/*Testing Button */}
         <br/>
         <Table>
             <TableBody>
