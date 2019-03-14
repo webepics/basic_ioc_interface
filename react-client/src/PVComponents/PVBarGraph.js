@@ -39,20 +39,13 @@ class PVBarGraph extends PVComponent {
         }
     }, this);  
   	return (
-        <div>
-        <ContextMenuTrigger id='foo'>
-            <BarChart onClick={() => this.render()} width={this.props.width} height={this.props.height} data={this.state.data}>
-             <XAxis dataKey='label' height={50} interval={0} dx={8} dy={20} angle={75}/>
-             <Bar dataKey='value' fill='#8c8700' background={{ fill: '#eee' }}/>
-             <Tooltip/>
+        <React.Fragment>
+          <BarChart onClick={() => this.render()} width={this.props.width} height={this.props.height} data={this.state.data}>
+            <XAxis dataKey='label' height={50} interval={0} dx={8} dy={20} angle={75}/>
+            <Bar dataKey='value' fill='#8c8700' background={{ fill: '#eee' }}/>
+            <Tooltip/>
            </BarChart>
-        </ContextMenuTrigger>
-        <ContextMenu id='foo'>
-            <MenuItem data={{foo: 'bar'}} onClick={ ()=>alert('NOT YET IMPLEMENTED')}>
-                PV Probe
-            </MenuItem>
-        </ContextMenu>
-        </div>
+         </React.Fragment>
     );
   }
 }
