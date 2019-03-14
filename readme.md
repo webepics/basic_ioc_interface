@@ -2,6 +2,8 @@
 
 Before beginning, make sure you've installed and started Docker. For more information see the [docker docs](https://docs.docker.com/install/).
 
+![Overview Image](https://raw.githubusercontent.com/webepics/basic_ioc_interface/master/stack.png)
+
 ## Deploy Docker Composition
 
 Simply navigate to the root folder of this repository and use the command
@@ -60,14 +62,3 @@ I've tried to make adding PVComponents super simple.
   `this.props.pvs[pvId].value`
 
 For a super simple example, see `/react-client/src/PVComponents/PVLed.js`.
-
-## Todo
-
-- Integrate epics2web max-bytes argument into Docker Build step rather than use custom _epics2web.war_
-
-- Give the option to use a custom network
-
-- Add basic Authentication/Authorization in UI
-- Parse JSON into React table widgets
-- Figure out how to get control data through epics2web and handle that in client
-- Add support for array PVs (e.g. waveforms)

@@ -2,14 +2,15 @@
 import { createStore, combineReducers } from "redux";
 import * as Actions from './actions'
 
+const env = process.env
 const defaultState = {
     websocket: {
-        url: 'ws://localhost:8080/epics2web/monitor',
+        url: `ws://${env.REACT_APP_WEBSOCKET_HOST}:${env.REACT_APP_WEBSOCKET_GET_PORT}${env.REACT_APP_WEBSOCKET_GET_URL}`,
         monitored: {},
         readyState: 3,
     },
     http: {
-        put_url: 'http://localhost:8081/put',
+        put_url: `http://${env.REACT_APP_WEBSOCKET_HOST}:${env.REACT_APP_WEBSOCKET_PUT_PORT}${env.REACT_APP_WEBSOCKET_PUT_URL}`,
     },
     pvs: {},
     display: {
@@ -52,7 +53,7 @@ const websocket = (state = defaultState.websocket, action) => {
             ...state,
             readyState: action.state
         }
-        case Actions.WS_MONITOR: 
+        case Actions.WS_MONITOR:
         if (!action || !action.name) return state
         else return {
             ...state,
@@ -78,7 +79,7 @@ const http = (state = defaultState.http, action) => {
 
 const display = (state = defaultState.display, action) => {
     switch (action.type) {
-        case Actions.DRAWER_TOGGLE: 
+        case Actions.DRAWER_TOGGLE:
             return {
                 ...state,
                 drawer: {open: !state.drawer.open}
