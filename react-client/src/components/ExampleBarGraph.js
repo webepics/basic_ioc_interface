@@ -6,7 +6,7 @@ class ExampleBarGraph extends Component {
   render() {
     return (
         <React.Fragment>
-            <PVBarGraph template='$(p):paf:ctrl:adc:pafAvTemp' macro="ak{01..36}"  />
+            <PVBarGraph template='$(p):paf:ctrl:adc1:pafAvTemp' macro="ak{01..36}"  />
         </React.Fragment>
     );
   }
