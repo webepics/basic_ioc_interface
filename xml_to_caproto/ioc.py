@@ -2,7 +2,7 @@
 import random
 from caproto.server import pvproperty, PVGroup, ioc_arg_parser, run
 
-class BFStatusIOC(PVGroup):
+class ctrlIOC(PVGroup):
     
 	pv_BFStatuspowerStatus_p01_card01 = pvproperty(name="ak01:card01:BFStatus:powerStatus", value=0)
 	pv_BFStatuspowerStatus_p01_card02 = pvproperty(name="ak01:card02:BFStatus:powerStatus", value=1)
@@ -3460,11 +3460,47 @@ class BFStatusIOC(PVGroup):
 	pv_BFStatusstreamStatus_p36_card10 = pvproperty(name="ak36:card10:BFStatus:streamStatus", value=44)
 	pv_BFStatusstreamStatus_p36_card11 = pvproperty(name="ak36:card11:BFStatus:streamStatus", value=45)
 	pv_BFStatusstreamStatus_p36_card12 = pvproperty(name="ak36:card12:BFStatus:streamStatus", value=46)
+	pv_ctrladc1pafAvTemp_p01_card01 = pvproperty(name="ak01:ctrl:adc1:pafAvTemp", value=0)
+	pv_ctrladc1pafAvTemp_p02_card01 = pvproperty(name="ak02:ctrl:adc1:pafAvTemp", value=1)
+	pv_ctrladc1pafAvTemp_p03_card01 = pvproperty(name="ak03:ctrl:adc1:pafAvTemp", value=2)
+	pv_ctrladc1pafAvTemp_p04_card01 = pvproperty(name="ak04:ctrl:adc1:pafAvTemp", value=3)
+	pv_ctrladc1pafAvTemp_p05_card01 = pvproperty(name="ak05:ctrl:adc1:pafAvTemp", value=4)
+	pv_ctrladc1pafAvTemp_p06_card01 = pvproperty(name="ak06:ctrl:adc1:pafAvTemp", value=5)
+	pv_ctrladc1pafAvTemp_p07_card01 = pvproperty(name="ak07:ctrl:adc1:pafAvTemp", value=6)
+	pv_ctrladc1pafAvTemp_p08_card01 = pvproperty(name="ak08:ctrl:adc1:pafAvTemp", value=7)
+	pv_ctrladc1pafAvTemp_p09_card01 = pvproperty(name="ak09:ctrl:adc1:pafAvTemp", value=8)
+	pv_ctrladc1pafAvTemp_p10_card01 = pvproperty(name="ak10:ctrl:adc1:pafAvTemp", value=9)
+	pv_ctrladc1pafAvTemp_p11_card01 = pvproperty(name="ak11:ctrl:adc1:pafAvTemp", value=10)
+	pv_ctrladc1pafAvTemp_p12_card01 = pvproperty(name="ak12:ctrl:adc1:pafAvTemp", value=11)
+	pv_ctrladc1pafAvTemp_p13_card01 = pvproperty(name="ak13:ctrl:adc1:pafAvTemp", value=12)
+	pv_ctrladc1pafAvTemp_p14_card01 = pvproperty(name="ak14:ctrl:adc1:pafAvTemp", value=13)
+	pv_ctrladc1pafAvTemp_p15_card01 = pvproperty(name="ak15:ctrl:adc1:pafAvTemp", value=14)
+	pv_ctrladc1pafAvTemp_p16_card01 = pvproperty(name="ak16:ctrl:adc1:pafAvTemp", value=15)
+	pv_ctrladc1pafAvTemp_p17_card01 = pvproperty(name="ak17:ctrl:adc1:pafAvTemp", value=16)
+	pv_ctrladc1pafAvTemp_p18_card01 = pvproperty(name="ak18:ctrl:adc1:pafAvTemp", value=17)
+	pv_ctrladc1pafAvTemp_p19_card01 = pvproperty(name="ak19:ctrl:adc1:pafAvTemp", value=18)
+	pv_ctrladc1pafAvTemp_p20_card01 = pvproperty(name="ak20:ctrl:adc1:pafAvTemp", value=19)
+	pv_ctrladc1pafAvTemp_p21_card01 = pvproperty(name="ak21:ctrl:adc1:pafAvTemp", value=20)
+	pv_ctrladc1pafAvTemp_p22_card01 = pvproperty(name="ak22:ctrl:adc1:pafAvTemp", value=21)
+	pv_ctrladc1pafAvTemp_p23_card01 = pvproperty(name="ak23:ctrl:adc1:pafAvTemp", value=22)
+	pv_ctrladc1pafAvTemp_p24_card01 = pvproperty(name="ak24:ctrl:adc1:pafAvTemp", value=23)
+	pv_ctrladc1pafAvTemp_p25_card01 = pvproperty(name="ak25:ctrl:adc1:pafAvTemp", value=24)
+	pv_ctrladc1pafAvTemp_p26_card01 = pvproperty(name="ak26:ctrl:adc1:pafAvTemp", value=25)
+	pv_ctrladc1pafAvTemp_p27_card01 = pvproperty(name="ak27:ctrl:adc1:pafAvTemp", value=26)
+	pv_ctrladc1pafAvTemp_p28_card01 = pvproperty(name="ak28:ctrl:adc1:pafAvTemp", value=27)
+	pv_ctrladc1pafAvTemp_p29_card01 = pvproperty(name="ak29:ctrl:adc1:pafAvTemp", value=28)
+	pv_ctrladc1pafAvTemp_p30_card01 = pvproperty(name="ak30:ctrl:adc1:pafAvTemp", value=29)
+	pv_ctrladc1pafAvTemp_p31_card01 = pvproperty(name="ak31:ctrl:adc1:pafAvTemp", value=30)
+	pv_ctrladc1pafAvTemp_p32_card01 = pvproperty(name="ak32:ctrl:adc1:pafAvTemp", value=31)
+	pv_ctrladc1pafAvTemp_p33_card01 = pvproperty(name="ak33:ctrl:adc1:pafAvTemp", value=32)
+	pv_ctrladc1pafAvTemp_p34_card01 = pvproperty(name="ak34:ctrl:adc1:pafAvTemp", value=33)
+	pv_ctrladc1pafAvTemp_p35_card01 = pvproperty(name="ak35:ctrl:adc1:pafAvTemp", value=34)
+	pv_ctrladc1pafAvTemp_p36_card01 = pvproperty(name="ak36:ctrl:adc1:pafAvTemp", value=35)
 
 
 if __name__ == '__main__':
     ioc_options, run_options = ioc_arg_parser(
         default_prefix="",
         desc='Run an IOC with a random-walking value.')
-    ioc = BFStatusIOC(**ioc_options)
+    ioc = ctrlIOC(**ioc_options)
     run(ioc.pvdb, **run_options)

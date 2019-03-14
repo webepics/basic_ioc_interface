@@ -1,0 +1,10 @@
+<macros>
+  <Group name="ctrl:adc1:pafAvTemp" type="iocPoint">
+    <comment>ADC1:PAF Av Temp</comment>
+    <name>PafCtrlInfo:adc1:pafAvTemp</name>
+    <pv>$(p)ctrl:adc1:pafAvTemp</pv>
+    <egu>C</egu>
+    <type>float</type>
+    <size>1</size>
+  </Group>
+</macros>
