@@ -13,15 +13,16 @@ class PVButton extends PVComponent {
 
     handleChange(event) {
         event.persist()
-        console.log("button pressed :) !!!" ) 
-        console.log(`${this.props.pv}`)
+        this.write(this.props.pv, this.props.newValue)()
+        
     }
 
     render() {
         const {pvs, pv} = this.props;
         const pvValue = pvs[pv] && pvs[pv].value ? pvs[pv].value : "";
         const title = `pv: ${pv} \nvalue: ${pvValue}`;
-        return <Button variant="outlined" color="primary" onClick={this.handleChange} value={pv} >Button {pv} </Button>
+        const buttonText = this.props.children ? this.props.children : `set ${this.props.pv} to ${this.props.newValue}`;
+        return <Button variant="outlined" color="primary" onClick={this.handleChange} value={pv}> {buttonText} </Button>
     }
 }
 

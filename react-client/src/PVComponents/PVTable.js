@@ -61,7 +61,9 @@ class PVTable extends PVComponent {
         <React.Fragment>
         <br/><br/>
         <Button variant="outlined" color="primary" onClick={this.toggleDisplay}>Toggle Checkbox / LED</Button>
-        <PVButton pv={this.ids[0][0]}> name=name </PVButton>:  {/*Testing Button */}
+        
+        <PVButton pv={this.ids[0][0]} newValue={1}/> :  {/*Testing Button */}
+         
         <br/>
         <Table>
             <TableBody>
