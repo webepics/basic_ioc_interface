@@ -15,24 +15,24 @@ const styles = theme => ({
     },
     minimal: {
         backgroundColor: '#ffffff',
-        borderRadius: '16px',  
-        padding: '4px',      
+        borderRadius: '16px',
+        padding: '4px 8px',
     }
 });
 
-function ReadyState(props) { 
+function ReadyState(props) {
     const { classes, isMinimal } = props;
     const readyState = props.websocket.readyState;
-    let details = {title: "Error", iconClass:"fas fa-battery-empty", className:"error"}
+    let details = {title: "Error", iconClass:"fas fa-plug", className:"error"}
 
-    if (readyState === 0) 
-      details = {title: "Connecting", iconClass:"fas fa-battery-half", className:"warning"}  
-    if (readyState === 1) 
-      details = {title: "Connected", iconClass:"fas fa-battery-full", className:"success"}  
-    if (readyState === 2) 
-      details = {title: "Disconnecting", iconClass:"fas fa-battery-half", className:"warning"}  
-    if (readyState === 3) 
-      details = {title: "Disconnected", iconClass:"fas fa-battery-empty", className:"error"}  
+    if (readyState === 0)
+      details = {title: "Connecting", iconClass:"fas fa-plug", className:"warning"}
+    if (readyState === 1)
+      details = {title: "Connected", iconClass:"fas fa-plug", className:"success"}
+    if (readyState === 2)
+      details = {title: "Disconnecting", iconClass:"fas fa-plug", className:"warning"}
+    if (readyState === 3)
+      details = {title: "Disconnected", iconClass:"fas fa-plug", className:"error"}
 
     if (isMinimal) {
         return (
@@ -55,5 +55,5 @@ function mapStateToProps(state){
     websocket: state.websocket,
   }
 }
-  
+
 export default withStyles(styles)(connect(mapStateToProps)(ReadyState))
