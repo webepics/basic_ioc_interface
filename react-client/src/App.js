@@ -13,7 +13,7 @@ class App extends Component {
         <header className="App-header">
           <WebSocketManager />
           <PVTable template='$(p)$(card)BFStatus:fpgaConfigured' prefix='ak' pCount={36} cardCount={12} />
-          <PVBarGraph template="$(p):paf:ctrl_adc1_pafAvTemp" macro="ak{01..36}" width={800} height={200}/>
+          <PVBarGraph template="$(p):paf:ctrl:adc1:pafAvTemp" macro="ak{01..36}" width={800} height={200}/>
         </header>
       </div>
     );
