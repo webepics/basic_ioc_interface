@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from caproto.sync import client
+from caproto._utils import CaprotoTimeoutError
 from flask import Flask, make_response, request
 import time
 import json
@@ -28,13 +29,23 @@ def get_channels_status():
 
     for name in myNames:
         pvInfo = {}
+        pvInfo['name'] = name
         #get timestamp, severity
-        val = client.read(name, data_type='time')
-        pvInfo['value'] = val.data.tolist()
-        pvInfo['timestamp'] = val.metadata.timestamp
-        pvInfo['timestring'] = time.asctime(time.gmtime(pvInfo['timestamp']))
-        pvInfo['status'] = val.metadata.status
-        pvInfo['severity'] = val.metadata.severity
+        try:
+            val = client.read(name, data_type='time')
+        except CaprotoTimeoutError:
+            pvInfo['value'] = None
+            pvInfo['timestamp'] = 0.0
+            pvInfo['timestring'] = time.asctime(time.gmtime(pvInfo['timestamp']))
+        else:
+            valValue = val.data.tolist()
+            if val.data_count == 1:
+                valValue = valValue[0]
+            pvInfo['value'] = valValue
+            pvInfo['timestamp'] = val.metadata.timestamp
+            pvInfo['timestring'] = time.asctime(time.gmtime(pvInfo['timestamp']))
+            pvInfo['status'] = val.metadata.status
+            pvInfo['severity'] = val.metadata.severity
         pvs.append(pvInfo)
     allValues = {'values': pvs}
     return make_response(json.dumps(allValues))
