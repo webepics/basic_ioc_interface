@@ -2,6 +2,8 @@
 
 Before beginning, make sure you've installed and started Docker. For more information see the [docker docs](https://docs.docker.com/install/).
 
+![Overview Image](https://raw.githubusercontent.com/webepics/basic_ioc_interface/master/stack.png)
+
 ## Deploy Docker Composition
 
 Simply navigate to the root folder of this repository and use the command
