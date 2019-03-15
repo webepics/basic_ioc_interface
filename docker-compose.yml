@@ -15,3 +15,10 @@ services:
   test_iocs:
     build: ./xml_to_caproto
     network_mode: bridge
+  # ui:
+  #   build: ./react-client
+  #   network_mode: bridge
+  #   environment:
+  #     - "REACT_APP_WEBSOCKET_HOST=localhost"
+  #   ports:
+  #     - "80:80"
