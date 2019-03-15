@@ -2,7 +2,7 @@
 import { createStore, combineReducers } from "redux";
 import * as Actions from './actions'
 
-const env = process.env
+const env = process.env.NODE_ENV === 'development' || window._env_ === undefined ? process.env : window._env_;
 const defaultState = {
     websocket: {
         url: `ws://${env.REACT_APP_WEBSOCKET_HOST}:${env.REACT_APP_WEBSOCKET_GET_PORT}${env.REACT_APP_WEBSOCKET_GET_URL}`,
